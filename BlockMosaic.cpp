@@ -9,7 +9,7 @@ using namespace std;
 void BlockMosaic::readTextures(void)
 {
 	for (int i = 0; i < BLOCK_MOSAIC_TEXTURE_NUM; i++) {
-		string fpath("texture\\block\\blockMosaic");
+		string fpath("texture/block/blockMosaic");
 		fpath += to_string(i + 1);
 		fpath += ".ppm";
 		texture[i] = Image(fpath);

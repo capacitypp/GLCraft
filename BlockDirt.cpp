@@ -8,9 +8,9 @@ using namespace std;
 
 void BlockDirt::readTextures(void)
 {
-	texture1 = Image("texture\\block\\blockDirt1.ppm");
-	texture2 = Image("texture\\block\\blockDirt2.ppm");
-	texture3 = Image("texture\\block\\blockDirt3.ppm");
+	texture1 = Image("texture/block/blockDirt1.ppm");
+	texture2 = Image("texture/block/blockDirt2.ppm");
+	texture3 = Image("texture/block/blockDirt3.ppm");
 }
 
 void BlockDirt::registerTextures(void)

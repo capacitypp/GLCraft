@@ -8,8 +8,8 @@ using namespace std;
 
 void BlockWood::readTextures(void)
 {
-	texture1 = Image("texture\\block\\blockWood1.ppm");
-	texture2 = Image("texture\\block\\blockWood2.ppm");
+	texture1 = Image("texture/block/blockWood1.ppm");
+	texture2 = Image("texture/block/blockWood2.ppm");
 }
 
 void BlockWood::registerTextures(void)

@@ -8,7 +8,7 @@ using namespace std;
 
 void BlockCVIP::readTextures(void)
 {
-	texture = Image("texture\\block\\blockCVIP.ppm");
+	texture = Image("texture/block/blockCVIP.ppm");
 }
 
 void BlockCVIP::registerTextures(void)

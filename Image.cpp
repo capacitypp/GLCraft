@@ -52,115 +52,115 @@ void Image::readImage(const std::string& fpath)
 void Image::readBuiltInImage(const std::string& fpath)
 {
 	cout << "built-in image : " << fpath << endl;
-	if (fpath == "texture\\block\\blockCVIP.ppm") {
+	if (fpath == "texture/block/blockCVIP.ppm") {
 		width = blockCVIPWidth;
 		height = blockCVIPHeight;
 		data = RGB2RGBA(width, height, blockCVIPData);
 		return;
 	}
-	if (fpath == "texture\\block\\blockDirt1.ppm") {
+	if (fpath == "texture/block/blockDirt1.ppm") {
 		width = blockDirt1Width;
 		height = blockDirt1Height;
 		data = RGB2RGBA(width, height, blockDirt1Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockDirt2.ppm") {
+	if (fpath == "texture/block/blockDirt2.ppm") {
 		width = blockDirt2Width;
 		height = blockDirt2Height;
 		data = RGB2RGBA(width, height, blockDirt2Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockDirt3.ppm") {
+	if (fpath == "texture/block/blockDirt3.ppm") {
 		width = blockDirt3Width;
 		height = blockDirt3Height;
 		data = RGB2RGBA(width, height, blockDirt3Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockLeaf.ppm") {
+	if (fpath == "texture/block/blockLeaf.ppm") {
 		width = blockLeafWidth;
 		height = blockLeafHeight;
 		data = RGB2RGBA(width, height, blockLeafData);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic1.ppm") {
+	if (fpath == "texture/block/blockMosaic1.ppm") {
 		width = blockMosaic1Width;
 		height = blockMosaic1Height;
 		data = RGB2RGBA(width, height, blockMosaic1Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic2.ppm") {
+	if (fpath == "texture/block/blockMosaic2.ppm") {
 		width = blockMosaic2Width;
 		height = blockMosaic2Height;
 		data = RGB2RGBA(width, height, blockMosaic2Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic3.ppm") {
+	if (fpath == "texture/block/blockMosaic3.ppm") {
 		width = blockMosaic3Width;
 		height = blockMosaic3Height;
 		data = RGB2RGBA(width, height, blockMosaic3Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic4.ppm") {
+	if (fpath == "texture/block/blockMosaic4.ppm") {
 		width = blockMosaic4Width;
 		height = blockMosaic4Height;
 		data = RGB2RGBA(width, height, blockMosaic4Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic5.ppm") {
+	if (fpath == "texture/block/blockMosaic5.ppm") {
 		width = blockMosaic5Width;
 		height = blockMosaic5Height;
 		data = RGB2RGBA(width, height, blockMosaic5Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic6.ppm") {
+	if (fpath == "texture/block/blockMosaic6.ppm") {
 		width = blockMosaic6Width;
 		height = blockMosaic6Height;
 		data = RGB2RGBA(width, height, blockMosaic6Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic7.ppm") {
+	if (fpath == "texture/block/blockMosaic7.ppm") {
 		width = blockMosaic7Width;
 		height = blockMosaic7Height;
 		data = RGB2RGBA(width, height, blockMosaic7Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic8.ppm") {
+	if (fpath == "texture/block/blockMosaic8.ppm") {
 		width = blockMosaic8Width;
 		height = blockMosaic8Height;
 		data = RGB2RGBA(width, height, blockMosaic8Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic9.ppm") {
+	if (fpath == "texture/block/blockMosaic9.ppm") {
 		width = blockMosaic9Width;
 		height = blockMosaic9Height;
 		data = RGB2RGBA(width, height, blockMosaic9Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockMosaic10.ppm") {
+	if (fpath == "texture/block/blockMosaic10.ppm") {
 		width = blockMosaic10Width;
 		height = blockMosaic10Height;
 		data = RGB2RGBA(width, height, blockMosaic10Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockWood1.ppm") {
+	if (fpath == "texture/block/blockWood1.ppm") {
 		width = blockWood1Width;
 		height = blockWood1Height;
 		data = RGB2RGBA(width, height, blockWood1Data);
 		return;
 	}
-	if (fpath == "texture\\block\\blockWood2.ppm") {
+	if (fpath == "texture/block/blockWood2.ppm") {
 		width = blockWood2Width;
 		height = blockWood2Height;
 		data = RGB2RGBA(width, height, blockWood2Data);
 		return;
 	}
-	if (fpath == "texture\\itemSlot\\itemSlot1.ppm") {
+	if (fpath == "texture/itemSlot/itemSlot1.ppm") {
 		width = itemSlot1Width;
 		height = itemSlot1Height;
 		data = RGB2RGBA(width, height, itemSlot1Data);
 		return;
 	}
-	if (fpath == "texture\\itemSlot\\itemSlot2.ppm") {
+	if (fpath == "texture/itemSlot/itemSlot2.ppm") {
 		width = itemSlot2Width;
 		height = itemSlot2Height;
 		data = RGB2RGBA(width, height, itemSlot2Data);

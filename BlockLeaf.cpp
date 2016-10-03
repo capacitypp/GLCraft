@@ -8,7 +8,7 @@ using namespace std;
 
 void BlockLeaf::readTextures(void)
 {
-	texture = Image("texture\\block\\blockLeaf.ppm");
+	texture = Image("texture/block/blockLeaf.ppm");
 }
 
 void BlockLeaf::registerTextures(void)
