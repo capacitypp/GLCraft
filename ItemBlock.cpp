@@ -1,7 +1,7 @@
 #include "ItemBlock.h"
 #include "BlockManager.h"
 
-#include <gl\glut.h>
+#include <GL/glut.h>
 
 void ItemBlock::draw(void) const
 {

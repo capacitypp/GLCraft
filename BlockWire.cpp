@@ -1,7 +1,7 @@
 #include "BlockWire.h"
 #include "DisplayListManager.h"
 
-#include <gl\glut.h>
+#include <GL/glut.h>
 
 using namespace std;
 

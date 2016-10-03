@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include <gl\glut.h>
+#include <GL/glut.h>
 
 class StringManager {
 public:
