@@ -5,14 +5,14 @@ bool WorldBlock::isHit(const Vector& blockPosition, const Vector& position) cons
 {
 	if (blockID == 0)
 		return false;
-	return BlockManager::getBlock(blockID).isHit(blockPosition, position);
+	return BlockManager::getBlock(blockID)->isHit(blockPosition, position);
 }
 
 bool WorldBlock::isHitPlayer(const Vector& blockPosition, const Vector& playerPosition) const
 {
 	if (!_isVisible)
 		return false;
-	return BlockManager::getBlock(blockID).isHitPlayer(blockPosition, playerPosition);
+	return BlockManager::getBlock(blockID)->isHitPlayer(blockPosition, playerPosition);
 }
 
 bool WorldBlock::isHitReach(const Vector& blockPosition, const Player& player) const
@@ -21,5 +21,5 @@ bool WorldBlock::isHitReach(const Vector& blockPosition, const Player& player) c
 		return false;
 	if (blockID == 0)
 		return false;
-	return BlockManager::getBlock(blockID).isHitReach(blockPosition, player);
+	return BlockManager::getBlock(blockID)->isHitReach(blockPosition, player);
 }
