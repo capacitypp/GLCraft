@@ -56,7 +56,7 @@ void display(void)
 		glPushMatrix();
 		glTranslated(position.getX(), position.getY(), position.getZ());
 		glEnable(GL_TEXTURE_2D);
-		BlockManager::getBlock(6).draw(mouse.getLeftCount());
+		BlockManager::getBlock(6)->draw(mouse.getLeftCount());
 		glDisable(GL_TEXTURE_2D);
 		glPopMatrix();
 	}
@@ -86,7 +86,7 @@ void display(void)
 	glRotated(xAngle, 1, 0, 0);
 	glTranslated(-0.5, -0.5, -0.5);
 	glEnable(GL_TEXTURE_2D);
-	BlockManager::getBlock(5).draw();
+	BlockManager::getBlock(5)->draw();
 	glDisable(GL_TEXTURE_2D);
 
 	glutSwapBuffers();
