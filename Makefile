@@ -1,7 +1,7 @@
 OBJS=Block.o BlockAir.o BlockCVIP.o BlockDirt.o BlockLeaf.o BlockManager.o BlockMosaic.o BlockWire.o BlockWood.o BuiltInImage.o DisplayListManager.o Image.o ItemBlock.o ItemSlot.o ItemStack.o Main.o Mouse.o Player.o TextureManager.o Timer.o World.o WorldBlock.o
 OBJPATHS=$(addprefix $(BUILDPATH)/, $(OBJS))
 CPPFLAGS=$(INCLUDE) -Wall -O2 -std=c++14 -MMD
-LDFLAGS=-lglut -lGLU -lGL
+LDFLAGS=-lglut -lGLU -lGL -lpthread
 BUILDPATH=./build
 CXX=ccache clang++
 
