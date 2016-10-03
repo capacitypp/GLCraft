@@ -21,7 +21,7 @@ class World {
 	double lastHitBlockDistance;
 	int lastHitBlockIdx[3];
 	int lastHitBlockFace;
-	bool isBusyUpdateChunkVisible;
+	volatile bool isBusyUpdateChunkVisible;
 private:
 	void generateWood(int x, int y, int z);
 	void generateWoods(void);
