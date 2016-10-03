@@ -11,21 +11,21 @@ void ItemSlot::registerTexture(void)
 	textureID1 = TextureManager::getNewID();
 	textureID2 = TextureManager::getNewID();
 	//ブロックのテクスチャ登録を流用
-	Block& block = BlockManager::getBlock(2);
-	block.registerTexture(texture1, textureID1);
-	block.registerTexture(texture2, textureID2);
+	Block* block = BlockManager::getBlock(2);
+	block->registerTexture(texture1, textureID1);
+	block->registerTexture(texture2, textureID2);
 	displayListID1 = DisplayListManager::getNewID();
 	displayListID2 = DisplayListManager::getNewID();
 	glNewList(displayListID1, GL_COMPILE);
 	glPushMatrix();
 	glScaled(2.5, 2.5, 2.5);
-	block.drawTexture(textureID1, Vector(0, 0, 0), Vector(1, 0, 0), Vector(1, 1, 0), Vector(0, 1, 0));
+	block->drawTexture(textureID1, Vector(0, 0, 0), Vector(1, 0, 0), Vector(1, 1, 0), Vector(0, 1, 0));
 	glPopMatrix();
 	glEndList();
 	glNewList(displayListID2, GL_COMPILE);
 	glPushMatrix();
 	glScaled(2.5, 2.5, 2.5);
-	block.drawTexture(textureID2, Vector(0, 0, 0), Vector(1, 0, 0), Vector(1, 1, 0), Vector(0, 1, 0));
+	block->drawTexture(textureID2, Vector(0, 0, 0), Vector(1, 0, 0), Vector(1, 1, 0), Vector(0, 1, 0));
 	glPopMatrix();
 	glEndList();
 }
@@ -74,14 +74,14 @@ void ItemSlot::draw(void) const
 		}
 		glPushMatrix();
 		const ItemStack& itemStack = itemStacks[i];
-		const Block& block = BlockManager::getBlock(itemStack.getBlockID());
+		const Block* block = BlockManager::getBlock(itemStack.getBlockID());
 		glTranslated(0.8, 1.2, 0);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_BLEND);
 		glPushMatrix();
 		glTranslated(0.8, -0.2, 0.01);
 		glRotated(180, 0, 1, 0);
-		block.draw();
+		block->draw();
 		glPopMatrix();
 		glDisable(GL_BLEND);
 		glTranslated(0, -1, 1.1);
@@ -90,7 +90,7 @@ void ItemSlot::draw(void) const
 		glTranslated(2.5, 0, 0);
 	}
 	glTranslatef(10, 0, 0);
-	BlockManager::getBlock(2).draw();
+	BlockManager::getBlock(2)->draw();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 }

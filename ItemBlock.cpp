@@ -10,6 +10,6 @@ void ItemBlock::draw(void) const
 	glRotated(angle, 0, 1, 0);
 	glScaled(0.3, 0.3, 0.3);
 	glTranslated(-0.5, -0.5, -0.5);
-	BlockManager::getBlock(blockID).draw();
+	BlockManager::getBlock(blockID)->draw();
 	glPopMatrix();
 }
