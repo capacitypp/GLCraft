@@ -282,7 +282,6 @@ void World::movePlayer(void)
 	//目線のY軸成分を無視するための行列
 	Matrix M;
 	M[0][0] = M[2][2] = 1.0;
-	Vector beforePosition = player.getPosition();
 	moveDirection = Ry * M * player.getDirection() * speed;
 	//移動する
 	tryMovePlayer(moveDirection);
