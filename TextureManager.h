@@ -3,7 +3,7 @@
 
 #define MAX_TEXTURE	100
 
-#include <gl\glut.h>
+#include <GL/glut.h>
 
 class TextureManager {
 	static int cnt;

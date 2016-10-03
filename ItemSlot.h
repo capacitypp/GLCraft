@@ -7,7 +7,7 @@
 #include "Keyboard.h"
 
 #define GLUT_BUILDING_LIB
-#include <gl\glut.h>
+#include <GL/glut.h>
 
 class ItemSlot {
 	ItemStack itemStacks[MAX_ITEMSLOT];
