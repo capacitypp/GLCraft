@@ -1,0 +1,62 @@
+#ifndef ___Header_BuiltInImage 
+#define ___Header_BuiltInImage 
+ 
+extern int blockCVIPWidth;
+extern int blockCVIPHeight;
+extern unsigned char blockCVIPData[];
+extern int blockDirt1Width;
+extern int blockDirt1Height;
+extern unsigned char blockDirt1Data[];
+extern int blockDirt2Width;
+extern int blockDirt2Height;
+extern unsigned char blockDirt2Data[];
+extern int blockDirt3Width;
+extern int blockDirt3Height;
+extern unsigned char blockDirt3Data[];
+extern int blockLeafWidth;
+extern int blockLeafHeight;
+extern unsigned char blockLeafData[];
+extern int blockMosaic1Width;
+extern int blockMosaic1Height;
+extern unsigned char blockMosaic1Data[];
+extern int blockMosaic2Width;
+extern int blockMosaic2Height;
+extern unsigned char blockMosaic2Data[];
+extern int blockMosaic3Width;
+extern int blockMosaic3Height;
+extern unsigned char blockMosaic3Data[];
+extern int blockMosaic4Width;
+extern int blockMosaic4Height;
+extern unsigned char blockMosaic4Data[];
+extern int blockMosaic5Width;
+extern int blockMosaic5Height;
+extern unsigned char blockMosaic5Data[];
+extern int blockMosaic6Width;
+extern int blockMosaic6Height;
+extern unsigned char blockMosaic6Data[];
+extern int blockMosaic7Width;
+extern int blockMosaic7Height;
+extern unsigned char blockMosaic7Data[];
+extern int blockMosaic8Width;
+extern int blockMosaic8Height;
+extern unsigned char blockMosaic8Data[];
+extern int blockMosaic9Width;
+extern int blockMosaic9Height;
+extern unsigned char blockMosaic9Data[];
+extern int blockMosaic10Width;
+extern int blockMosaic10Height;
+extern unsigned char blockMosaic10Data[];
+extern int blockWood1Width;
+extern int blockWood1Height;
+extern unsigned char blockWood1Data[];
+extern int blockWood2Width;
+extern int blockWood2Height;
+extern unsigned char blockWood2Data[];
+extern int itemSlot1Width;
+extern int itemSlot1Height;
+extern unsigned char itemSlot1Data[];
+extern int itemSlot2Width;
+extern int itemSlot2Height;
+extern unsigned char itemSlot2Data[];
+ 
+#endif 
