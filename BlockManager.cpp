@@ -8,21 +8,21 @@
 #include "BlockMosaic.h"
 
 //ブロックのインスタンス化
-Block& BlockManager::blockAir = BlockAir();
-Block& BlockManager::blockWire = BlockWire();
-Block& BlockManager::blockDirt = BlockDirt();
-Block& BlockManager::blockWood = BlockWood();
-Block& BlockManager::blockLeaf = BlockLeaf();
-Block& BlockManager::blockCVIP = BlockCVIP();
-Block& BlockManager::blockMosaic = BlockMosaic();
+Block* BlockManager::blockAir = new BlockAir();
+Block* BlockManager::blockWire = new BlockWire();
+Block* BlockManager::blockDirt = new BlockDirt();
+Block* BlockManager::blockWood = new BlockWood();
+Block* BlockManager::blockLeaf = new BlockLeaf();
+Block* BlockManager::blockCVIP = new BlockCVIP();
+Block* BlockManager::blockMosaic = new BlockMosaic();
 
 void BlockManager::init(void)
 {
-	blockAir.registerDisplayList();
-	blockWire.registerDisplayList();
-	blockDirt.registerDisplayList();
-	blockWood.registerDisplayList();
-	blockLeaf.registerDisplayList();
-	blockCVIP.registerDisplayList();
-	blockMosaic.registerDisplayList();
+	blockAir->registerDisplayList();
+	blockWire->registerDisplayList();
+	blockDirt->registerDisplayList();
+	blockWood->registerDisplayList();
+	blockLeaf->registerDisplayList();
+	blockCVIP->registerDisplayList();
+	blockMosaic->registerDisplayList();
 }

@@ -7,16 +7,16 @@
 
 class BlockManager {
 public:
-	static Block& blockAir;
-	static Block& blockWire;
-	static Block& blockDirt;
-	static Block& blockWood;
-	static Block& blockLeaf;
-	static Block& blockCVIP;
-	static Block& blockMosaic;
+	static Block* blockAir;
+	static Block* blockWire;
+	static Block* blockDirt;
+	static Block* blockWood;
+	static Block* blockLeaf;
+	static Block* blockCVIP;
+	static Block* blockMosaic;
 public:
 	static void init(void);
-	inline static Block& getBlock(int id) {
+	inline static Block* getBlock(int id) {
 		switch (id) {
 		case 0:
 			return blockAir;
