@@ -5,8 +5,8 @@ LDFLAGS=-lglut -lGLU -lGL -lpthread
 BUILDPATH=./build
 CXX=ccache clang++
 
-all : makefolder $(OBJS)
-	$(CXX) -o Main $(LDFLAGS) $(OBJS)
+all : makefolder $(OBJPATHS)
+	$(CXX) -o Main $(LDFLAGS) $(OBJPATHS)
 
 $(BUILDPATH)/%.o : %.cpp
 	@mkdir -p $(dir $@)
