@@ -1,2 +1,3 @@
-# gpp-template
-g++ template repository
+# GLCraft
+Transplantation of a VS project
+
