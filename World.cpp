@@ -152,8 +152,8 @@ void World::updateDisplayList(void)
 					glTranslated(0, 0, 1);
 					continue;
 				}
-				const Block& block = BlockManager::getBlock(worldBlock.getBlockID());
-				block.draw();
+				const Block* block = BlockManager::getBlock(worldBlock.getBlockID());
+				block->draw();
 				glTranslated(0, 0, 1);
 			}
 			glPopMatrix();
