@@ -16,7 +16,7 @@ class ItemSlot {
 	GLuint textureID1, textureID2;
 	GLuint displayListID1, displayListID2;
 public:
-	//“yƒuƒƒbƒN‚ğ5ŒÂ‚½‚¹‚é
+	//åœŸãƒ–ãƒ­ãƒƒã‚¯ã‚’5å€‹æŒãŸã›ã‚‹
 	ItemSlot(void) : selected(0) { texture1 = Image("texture\\itemSlot\\itemSlot1.ppm"); texture2 = Image("texture\\itemSlot\\itemSlot2.ppm"); itemStacks[0] = ItemStack(2, 5); }
 	void registerTexture(void);
 	ItemStack getCurrentItemStack(void) const { return itemStacks[selected]; }

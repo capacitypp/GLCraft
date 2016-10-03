@@ -10,14 +10,14 @@ Image::Image(const std::string& fpath)
 {
 	ifstream file;
 	file.open(fpath.c_str());
-	//ƒeƒNƒXƒ`ƒƒƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¯‚ê‚ÎC“à‘ ƒeƒNƒXƒ`ƒƒ‚ğg‚¤
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã‘ã‚Œã°ï¼Œå†…è”µãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’ä½¿ã†
 	if (file.fail())
 		readBuiltInImage(fpath);
 	else
 		readImage(fpath);
 }
 
-//ƒeƒNƒXƒ`ƒƒ‚Ìƒtƒ@ƒCƒ‹‚©‚ç‚Ì“Ç‚İ‚İ
+//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã®èª­ã¿è¾¼ã¿
 void Image::readImage(const std::string& fpath)
 {
 	cout << "fpath : " << fpath << endl;
@@ -48,7 +48,7 @@ void Image::readImage(const std::string& fpath)
 	}
 }
 
-//ƒeƒNƒXƒ`ƒƒ‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹‚©‚ç‚Ì“Ç‚İ‚İ
+//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã®èª­ã¿è¾¼ã¿
 void Image::readBuiltInImage(const std::string& fpath)
 {
 	cout << "built-in image : " << fpath << endl;
@@ -169,7 +169,7 @@ void Image::readBuiltInImage(const std::string& fpath)
 
 }
 
-//RGBƒf[ƒ^‚ğRGBAƒf[ƒ^‚É•ÏŠ·‚·‚é
+//RGBãƒ‡ãƒ¼ã‚¿ã‚’RGBAãƒ‡ãƒ¼ã‚¿ã«å¤‰æ›ã™ã‚‹
 unsigned char* Image::RGB2RGBA(int width, int height, const unsigned char* src) const
 {
 	unsigned char* data = new unsigned char[height * width * 4];

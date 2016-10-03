@@ -9,7 +9,7 @@ using namespace std;
 
 void Mouse::update(void)
 {
-	//‰Ÿ‚µ‚Á‚Ï‚È‚µ‚É‚·‚é‚ÆCƒJƒEƒ“ƒ^[‚ª‘‰Á‚·‚é
+	//æŠ¼ã—ã£ã±ãªã—ã«ã™ã‚‹ã¨ï¼Œã‚«ã‚¦ãƒ³ã‚¿ãƒ¼ãŒå¢—åŠ ã™ã‚‹
 	if (left)
 		leftCnt++;
 	else
@@ -20,16 +20,16 @@ void Mouse::updatePlayerDirection(Player& player)
 {
 	int dx = x - bx;
 	int dy = -(y - by);
-	//10pixel‚Å1“x
+	//10pixelã§1åº¦
 	double dphi = dx / 10.0 / 180 * M_PI;
 	double dtheta = dy / 10.0 / 180 * M_PI;
 
 	Vector& direction = player.getDirection();
 
-	//ã‚ğŒü‚­’PˆÊƒxƒNƒgƒ‹
+	//ä¸Šã‚’å‘ãå˜ä½ãƒ™ã‚¯ãƒˆãƒ«
 	Vector Vy;
 	Vy.getY() = 1.0;
-	//Y²CƒvƒŒƒCƒ„[‚Ì–Úü‚Æ‚’¼‚ÈƒxƒNƒgƒ‹‚ğ‹‚ß‚é
+	//Yè»¸ï¼Œãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç›®ç·šã¨å‚ç›´ãªãƒ™ã‚¯ãƒˆãƒ«ã‚’æ±‚ã‚ã‚‹
 	Vector v = -Vy.outerProduct(direction);
 	Matrix R;
 	R[1][0] = v.getZ();
@@ -38,21 +38,21 @@ void Mouse::updatePlayerDirection(Player& player)
 	R[2][0] = -R[0][2];
 	R[2][1] = v.getX();
 	R[1][2] = -R[2][1];
-	//’PˆÊs—ñ
+	//å˜ä½è¡Œåˆ—
 	Matrix I;
 	I[0][0] = I[1][1] = I[2][2] = 1.0;
-	//–Úü‚ğã‚É‰ñ“]‚·‚é‰ñ“]s—ñ
+	//ç›®ç·šã‚’ä¸Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—
 	Matrix M = I + R * sin(dtheta) + R * R * (1 - cos(dtheta));
-	//–Úü‚ğY²ü‚è‚É‰ñ“]‚·‚é‰ñ“]s—ñ
+	//ç›®ç·šã‚’Yè»¸å‘¨ã‚Šã«å›è»¢ã™ã‚‹å›è»¢è¡Œåˆ—
 	Matrix Ry;
 	Ry[0][0] = Ry[2][2] = cos(-dphi);
 	Ry[0][2] = sin(-dphi);
 	Ry[2][0] = -Ry[0][2];
 	Ry[1][1] = 1.0;
 
-	//–Úü‚Ì•ûŒü‚ğ‰ñ“]‚·‚é
+	//ç›®ç·šã®æ–¹å‘ã‚’å›è»¢ã™ã‚‹
 	direction = M * Ry * direction;
-	//³‹K‰»‚·‚é
+	//æ­£è¦åŒ–ã™ã‚‹
 	direction /= direction.norm();
 }
 

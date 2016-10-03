@@ -16,7 +16,7 @@ GLuint TextureManager::getNewID(void)
 {
 	if (cnt >= MAX_TEXTURE) {
 		cerr << "at TextureManager::getNewID()" << endl;
-		cerr << "ƒeƒNƒXƒ`ƒƒID‚ª•s‘«‚µ‚Ä‚¢‚Ü‚·" << endl;
+		cerr << "ãƒ†ã‚¯ã‚¹ãƒãƒ£IDãŒä¸è¶³ã—ã¦ã„ã¾ã™" << endl;
 		exit(-1);
 	}
 	return IDs[cnt++];

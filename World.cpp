@@ -11,16 +11,16 @@
 
 using namespace std;
 
-//–Ø‚Ì¶¬
+//æœ¨ã®ç”Ÿæˆ
 void World::generateWood(int x, int y, int z)
 {
 	random_device rnd;
 	mt19937 mt(rnd());
 	uniform_int_distribution<int> rand46(4, 6);
 
-	//–Ø‚ÌŠ²‚Ì‚‚³
+	//æœ¨ã®å¹¹ã®é«˜ã•
 	int height = rand46(mt);
-	//–Ø‚Ì—t‚Ì¶¬
+	//æœ¨ã®è‘‰ã®ç”Ÿæˆ
 	for (int i = -2; i <= 2; i++)
 	for (int j = -2; j <= 2; j++)
 	for (int k = 0; k < 2; k++)
@@ -31,12 +31,12 @@ void World::generateWood(int x, int y, int z)
 	chunk[x][y + height - 1][z - 1] = WorldBlock(4);
 	chunk[x][y + height - 1][z + 1] = WorldBlock(4);
 	chunk[x][y + height][z] = WorldBlock(4);
-	//–Ø‚ÌŠ²‚Ì¶¬
+	//æœ¨ã®å¹¹ã®ç”Ÿæˆ
 	for (int i = 0; i < height; i++)
 		chunk[x][y + i][z] = WorldBlock(3);
 }
 
-//ƒ‰ƒ“ƒ_ƒ€‚ÈˆÊ’u‚É–Ø‚ğ¶¬‚·‚é
+//ãƒ©ãƒ³ãƒ€ãƒ ãªä½ç½®ã«æœ¨ã‚’ç”Ÿæˆã™ã‚‹
 void World::generateWoods(void)
 {
 	random_device rnd;
@@ -49,7 +49,7 @@ void World::generateWoods(void)
 
 }
 
-//ƒ`ƒƒƒ“ƒN‚Ì“Ç‚İ‚İ
+//ãƒãƒ£ãƒ³ã‚¯ã®èª­ã¿è¾¼ã¿
 void World::readChunk(void)
 {
 	ifstream file;
@@ -65,7 +65,7 @@ void World::readChunk(void)
 	}
 }
 
-//ƒAƒCƒeƒ€ƒXƒƒbƒg‚Ì“Ç‚İ‚İ
+//ã‚¢ã‚¤ãƒ†ãƒ ã‚¹ãƒ­ãƒƒãƒˆã®èª­ã¿è¾¼ã¿
 void World::readItemSlot(void)
 {
 	ifstream file;
@@ -80,7 +80,7 @@ void World::readItemSlot(void)
 	}
 }
 
-//ƒvƒŒƒCƒ„[‚Ìî•ñ‚Ì“Ç‚İ‚İ
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æƒ…å ±ã®èª­ã¿è¾¼ã¿
 void World::readPlayerPosition(void)
 {
 	ifstream file;
@@ -102,10 +102,10 @@ void World::readPlayerPosition(void)
 	playerDirection.getZ() = value;
 }
 
-//ƒ`ƒƒƒ“ƒN‚Ì¶¬
+//ãƒãƒ£ãƒ³ã‚¯ã®ç”Ÿæˆ
 void World::generateChunk(void)
 {
-	//ƒZ[ƒuƒf[ƒ^‚ª‚ ‚ê‚ÎC“Ç‚İ‚Ş
+	//ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Œã°ï¼Œèª­ã¿è¾¼ã‚€
 	ifstream file("chunk.dat");
 	if (!file.fail()) {
 		readChunk();
@@ -113,7 +113,7 @@ void World::generateChunk(void)
 		readPlayerPosition();
 		return;
 	}
-	//’n–ÊE‹ó‹C‚Ì¶¬
+	//åœ°é¢ãƒ»ç©ºæ°—ã®ç”Ÿæˆ
 	for (int i = 0; i < WORLD_WIDTH; i++) {
 		for (int j = 0; j < WORLD_HEIGHT; j++) {
 			for (int k = 0; k < WORLD_WIDTH; k++) {
@@ -124,7 +124,7 @@ void World::generateChunk(void)
 			}
 		}
 	}
-	//–Ø‚Ì¶¬
+	//æœ¨ã®ç”Ÿæˆ
 	generateWoods();
 }
 
@@ -147,7 +147,7 @@ void World::updateDisplayList(void)
 			glPushMatrix();
 			for (int k = 0; k < WORLD_WIDTH; k++) {
 				const WorldBlock& worldBlock = chunk[i][j][k];
-				//Œ©‚¦‚È‚¢ƒuƒƒbƒN‚Í–³‹
+				//è¦‹ãˆãªã„ãƒ–ãƒ­ãƒƒã‚¯ã¯ç„¡è¦–
 				if (!worldBlock.isVisible()) {
 					glTranslated(0, 0, 1);
 					continue;
@@ -177,7 +177,7 @@ void World::threadUpdateChunkVisible(void)
 				if (worldBlock.getBlockID() == 0)
 					continue;
 				Vector blockPosition(i - WORLD_WIDTH / 2, j, k - WORLD_WIDTH / 2);
-				//­‚µŒã‚ë‚ÌƒuƒƒbƒN‚à•`‰æ‘ÎÛ‚Æ‚·‚éi‰¡‚ğŒü‚­‚Æ‚«‚ÉˆÚ‚é‚æ‚¤‚É‚·‚é‚½‚ß&ƒoƒbƒN‚Ì“–‚½‚è”»’è‚Ì‚½‚ßj
+				//å°‘ã—å¾Œã‚ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚‚æç”»å¯¾è±¡ã¨ã™ã‚‹ï¼ˆæ¨ªã‚’å‘ãã¨ãã«ç§»ã‚‹ã‚ˆã†ã«ã™ã‚‹ãŸã‚&ãƒãƒƒã‚¯æ™‚ã®å½“ãŸã‚Šåˆ¤å®šã®ãŸã‚ï¼‰
 				Vector blockDirection = blockPosition - player.getPosition() + player.getDirection() * 5;
 				if (blockDirection * player.getDirection() < 0)
 					continue;
@@ -192,7 +192,7 @@ void World::threadUpdateChunkVisible(void)
 
 void World::updateChunkVisible(void)
 {
-	//XV’†‚È‚çƒŠƒ^[ƒ“
+	//æ›´æ–°ä¸­ãªã‚‰ãƒªã‚¿ãƒ¼ãƒ³
 	if (isBusyUpdateChunkVisible)
 		return;
 	isBusyUpdateChunkVisible = true;
@@ -200,7 +200,7 @@ void World::updateChunkVisible(void)
 	th.detach();
 }
 
-//XV‚ğ‘Ò‚Â
+//æ›´æ–°ã‚’å¾…ã¤
 void World::waitForUpdateChunkVisible(void)
 {
 	while (isBusyUpdateChunkVisible);
@@ -213,53 +213,53 @@ void World::draw(void) const
 	glDisable(GL_TEXTURE_2D);
 }
 
-//ƒvƒŒƒCƒ„[‚ğ“®‚©‚·
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚’å‹•ã‹ã™
 bool World::tryMovePlayer(const Vector& moveVector)
 {
 	Vector moveDirection(moveVector);
-	//ˆÚ“®‘O‚ÌˆÊ’u
+	//ç§»å‹•å‰ã®ä½ç½®
 	Vector beforePosition = player.getPosition();
-	//ˆÚ“®‚·‚é
+	//ç§»å‹•ã™ã‚‹
 	player.getPosition() += moveDirection;
 
-	//ƒuƒƒbƒN‚ÆÕ“Ë‚µ‚½‚ç
+	//ãƒ–ãƒ­ãƒƒã‚¯ã¨è¡çªã—ãŸã‚‰
 	if (isHitChunk()) {
-		//ˆê“xˆÊ’u‚ğ–ß‚·
+		//ä¸€åº¦ä½ç½®ã‚’æˆ»ã™
 		player.getPosition() = beforePosition;
 		Vector blockDirection = getBlockDirection(lastHitBlockPosition);
-		//Õ“Ë•ûŒü‚Ì¬•ª‚ğÁ‚·‚½‚ß‚ÌƒtƒBƒ‹ƒ^[
+		//è¡çªæ–¹å‘ã®æˆåˆ†ã‚’æ¶ˆã™ãŸã‚ã®ãƒ•ã‚£ãƒ«ã‚¿ãƒ¼
 		Vector filter = Vector(1, 1, 1) - Vector(fabs(blockDirection.getX()), fabs(blockDirection.getY()), fabs(blockDirection.getZ()));
-		//Õ“Ë•ûŒü‚Ì¬•ª‚ğÁ‚·
+		//è¡çªæ–¹å‘ã®æˆåˆ†ã‚’æ¶ˆã™
 		moveDirection = moveDirection.componentProduct(filter);
-		//Õ“Ë‚µ‚È‚¢•ûŒü‚ÉˆÚ“®‚·‚é
+		//è¡çªã—ãªã„æ–¹å‘ã«ç§»å‹•ã™ã‚‹
 		player.getPosition() += moveDirection;
-		//‘¼‚ÌƒuƒƒbƒN‚ÆÕ“Ë‚µ‚½‚ç
+		//ä»–ã®ãƒ–ãƒ­ãƒƒã‚¯ã¨è¡çªã—ãŸã‚‰
 		if (isHitChunk())
 			player.getPosition() = beforePosition;
 		return false;
 	}
-	//‘S‚­Õ“Ë‚µ‚È‚©‚Á‚½‚çtrue‚ğ•Ô‚·
+	//å…¨ãè¡çªã—ãªã‹ã£ãŸã‚‰trueã‚’è¿”ã™
 	return true;
 }
 
 void World::movePlayer(void)
 {
-	//ƒWƒƒƒ“ƒv‚·‚é
+	//ã‚¸ãƒ£ãƒ³ãƒ—ã™ã‚‹
 	if (!player.isFlying() && keyboard.getKey(' ')) {
 		player.getVelocity() += Vector(0, sqrt(2 * GRAVITY_ACCELERATION) + 0.5, 0);
 		player.isFlying() = true;
 	}
-	//‘¬“x‚É]‚Á‚ÄˆÚ“®‚·‚é
+	//é€Ÿåº¦ã«å¾“ã£ã¦ç§»å‹•ã™ã‚‹
 	player.getVelocity() += Vector(0, -GRAVITY_ACCELERATION / fps.get(), 0);
 	Vector moveDirection = player.getVelocity() / fps.get();
-	//’n–Ê‚É—‰º‚µ‚½‚ç
+	//åœ°é¢ã«è½ä¸‹ã—ãŸã‚‰
 	if (!tryMovePlayer(moveDirection)) {
 		player.isFlying() = false;
 		player.getVelocity() = Vector(0, 0, 0);
 	}
 	
 	double speed = IDEAL_FPS / fps.get() * 0.15;
-	//ƒL[ƒ{[ƒh‚É‚æ‚éˆÚ“®•ûŒü
+	//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã«ã‚ˆã‚‹ç§»å‹•æ–¹å‘
 	Vector keyboardVector;
 	if (keyboard.getKey('d') || keyboard.getKey('D'))
 		keyboardVector.getZ() = 1.0;
@@ -271,42 +271,42 @@ void World::movePlayer(void)
 		keyboardVector.getX() = -1.0;
 	if (keyboardVector.norm() < 0.1)
 		return;
-	//Šp“x‚É•ÏŠ·
+	//è§’åº¦ã«å¤‰æ›
 	double theta = atan2(keyboardVector.getZ(), keyboardVector.getX());
-	//‰ñ“]s—ñ
+	//å›è»¢è¡Œåˆ—
 	Matrix Ry;
 	Ry[0][0] = Ry[2][2] = cos(-theta);
 	Ry[0][2] = sin(-theta);
 	Ry[2][0] = -Ry[0][2];
 	Ry[1][1] = 1.0;
-	//–Úü‚ÌY²¬•ª‚ğ–³‹‚·‚é‚½‚ß‚Ìs—ñ
+	//ç›®ç·šã®Yè»¸æˆåˆ†ã‚’ç„¡è¦–ã™ã‚‹ãŸã‚ã®è¡Œåˆ—
 	Matrix M;
 	M[0][0] = M[2][2] = 1.0;
 	Vector beforePosition = player.getPosition();
 	moveDirection = Ry * M * player.getDirection() * speed;
-	//ˆÚ“®‚·‚é
+	//ç§»å‹•ã™ã‚‹
 	tryMovePlayer(moveDirection);
 }
 
 void World::leftClickPlayer(void)
 {
-	//¶ƒNƒŠƒbƒN‚µ‚Ä‚¢‚È‚©‚Á‚½‚ç
+	//å·¦ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ãªã‹ã£ãŸã‚‰
 	if (!mouse.getLeft())
 		return;
-	//‚Ç‚ÌƒuƒƒbƒN‚É‚àƒŠ[ƒ`‚ª“Í‚¢‚Ä‚¢‚È‚©‚Á‚½‚ç
+	//ã©ã®ãƒ–ãƒ­ãƒƒã‚¯ã«ã‚‚ãƒªãƒ¼ãƒãŒå±Šã„ã¦ã„ãªã‹ã£ãŸã‚‰
 	if (!isHitReachChunk()) {
 		mouse.getLeftCount() = 0;
 		return;
 	}
-	//ˆê’è‚ÌŠÔ¶ƒNƒŠƒbƒN‚µ‚Ä‚¢‚½‚ç
+	//ä¸€å®šã®æ™‚é–“å·¦ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ãŸã‚‰
 	if (mouse.getLeftCount() > 15) {
 		mouse.getLeftCount() = 0;
 		WorldBlock& worldBlock = chunk[lastHitBlockIdx[0]][lastHitBlockIdx[1]][lastHitBlockIdx[2]];
-		//ƒAƒCƒeƒ€‚ğƒXƒ|[ƒ“‚³‚¹‚é
+		//ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚¹ãƒãƒ¼ãƒ³ã•ã›ã‚‹
 		spawnItemBlock(worldBlock.getBlockID(), lastHitBlockPosition + Vector(0.5, 0.5, 0.5));
-		//ƒuƒƒbƒN‚ğ‹ó‹CƒuƒƒbƒN‚É’uŠ·
+		//ãƒ–ãƒ­ãƒƒã‚¯ã‚’ç©ºæ°—ãƒ–ãƒ­ãƒƒã‚¯ã«ç½®æ›
 		worldBlock = WorldBlock(0);
-		//ƒfƒBƒXƒvƒŒƒCƒŠƒXƒg‚ÌXV
+		//ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®æ›´æ–°
 		updateDisplayList();
 	}
 }
@@ -314,30 +314,30 @@ void World::leftClickPlayer(void)
 void World::rightClickPlayer(void)
 {
 	static int cnt = 0;
-	//‰EƒNƒŠƒbƒN‚µ‚Ä‚¢‚È‚©‚Á‚½‚ç
+	//å³ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ãªã‹ã£ãŸã‚‰
 	if (!mouse.getRight()) {
 		cnt = IDEAL_FPS / 4;
 		return;
 	}
 	ItemSlot& itemSlot = player.getItemSlot();
 	ItemStack& itemStack = itemSlot.getCurrentItemStack();
-	//‘I‘ğ‚µ‚Ä‚¢‚éƒXƒƒbƒg‚ÉƒAƒCƒeƒ€‚ª‚È‚©‚Á‚½‚ç
+	//é¸æŠã—ã¦ã„ã‚‹ã‚¹ãƒ­ãƒƒãƒˆã«ã‚¢ã‚¤ãƒ†ãƒ ãŒãªã‹ã£ãŸã‚‰
 	if (!itemStack.getNum())
 		return;
-	//‚Ç‚ÌƒuƒƒbƒN‚É‚àƒŠ[ƒ`‚ª“Í‚¢‚Ä‚¢‚È‚©‚Á‚½‚ç
+	//ã©ã®ãƒ–ãƒ­ãƒƒã‚¯ã«ã‚‚ãƒªãƒ¼ãƒãŒå±Šã„ã¦ã„ãªã‹ã£ãŸã‚‰
 	if (!isHitReachChunk())
 		return;
-	//ƒƒ“ƒNƒŠƒbƒN‚Å•¡”ŒÂ‚ÌƒuƒƒbƒN‚ª’u‚©‚ê‚È‚¢‚æ‚¤‚É‚·‚é‚½‚ß‚Ìˆ—
+	//ãƒ¯ãƒ³ã‚¯ãƒªãƒƒã‚¯ã§è¤‡æ•°å€‹ã®ãƒ–ãƒ­ãƒƒã‚¯ãŒç½®ã‹ã‚Œãªã„ã‚ˆã†ã«ã™ã‚‹ãŸã‚ã®å‡¦ç†
 	if (++cnt < (int)fps.get() / 4)
 		return;
-	//ƒuƒƒbƒN‚ğ’u‚­–Ê
+	//ãƒ–ãƒ­ãƒƒã‚¯ã‚’ç½®ãé¢
 	int face = lastHitBlockFace;
 	
-	//ƒŠ[ƒ`‚Ì“Í‚¢‚½ƒuƒƒbƒN‚ÌˆÊ’u
+	//ãƒªãƒ¼ãƒã®å±Šã„ãŸãƒ–ãƒ­ãƒƒã‚¯ã®ä½ç½®
 	int x = lastHitBlockIdx[0];
 	int y = lastHitBlockIdx[1];
 	int z = lastHitBlockIdx[2];
-	//ƒuƒƒbƒN‚ğ’u‚­ˆÊ’u‚Ìæ“¾
+	//ãƒ–ãƒ­ãƒƒã‚¯ã‚’ç½®ãä½ç½®ã®å–å¾—
 	switch (face) {
 	case 0:
 		y++;
@@ -358,11 +358,11 @@ void World::rightClickPlayer(void)
 		y--;
 		break;
 	}
-	//ƒuƒƒbƒN‚ğ’u‚­
+	//ãƒ–ãƒ­ãƒƒã‚¯ã‚’ç½®ã
 	chunk[x][y][z] = WorldBlock(itemStack.getBlockID());
-	//ƒXƒƒbƒg‚©‚çƒAƒCƒeƒ€‚ğŒ¸‚ç‚·
+	//ã‚¹ãƒ­ãƒƒãƒˆã‹ã‚‰ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¸›ã‚‰ã™
 	itemSlot.useItem();
-	//ƒfƒBƒXƒvƒŒƒCƒŠƒXƒg‚ÌXV
+	//ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®æ›´æ–°
 	updateDisplayList();
 	cnt = 0;
 }
@@ -401,11 +401,11 @@ bool World::isHitReachChunk(void)
 				const WorldBlock& worldBlock = chunk[i][j][k];
 				Vector blockPosition(i - WORLD_WIDTH / 2, j, k - WORLD_WIDTH / 2);
 				if (worldBlock.isHitReach(blockPosition, player)) {
-					//ƒuƒƒbƒN‚Ì’†SˆÊ’u
+					//ãƒ–ãƒ­ãƒƒã‚¯ã®ä¸­å¿ƒä½ç½®
 					Vector blockCenterPosition = blockPosition + Vector(0.5, 0.5, 0.5);
-					//ƒuƒƒbƒN‚ÆƒvƒŒƒCƒ„[‚Ì‹——£
+					//ãƒ–ãƒ­ãƒƒã‚¯ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è·é›¢
 					double distance = (blockCenterPosition - (player.getPosition() + player.getEyePosition())).norm();
-					//ˆê”Ô‹——£‚ª‹ß‚¢ƒuƒƒbƒN‚ğ‹‚ß‚é
+					//ä¸€ç•ªè·é›¢ãŒè¿‘ã„ãƒ–ãƒ­ãƒƒã‚¯ã‚’æ±‚ã‚ã‚‹
 					if (distance > lastHitBlockDistance)
 						continue;
 					lastHitBlockDistance = distance;
@@ -441,7 +441,7 @@ void World::drawItemBlocks(void) const
 
 void World::updateItemBlocks(void)
 {
-	//—‰ºˆ—
+	//è½ä¸‹å‡¦ç†
 	for (int i = 0; i < MAX_ITEMBLOCK; i++) {
 		ItemBlock& itemBlock = itemBlocks[i];
 		if (!itemBlock.getFlag())
@@ -476,11 +476,11 @@ void World::updateItemBlocks(void)
 			if (hitFlag)
 				break;
 		}
-		//‰ñ“]ˆ—
+		//å›è»¢å‡¦ç†
 		itemBlock.update();
 	}
 
-	//ƒvƒŒƒCƒ„[‚É‚æ‚éûW
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ã‚ˆã‚‹åé›†
 	const Vector& playerPosition = player.getPosition() + Vector(0, PLAYER_HEIGHT / 2, 0);
 	for (int i = 0; i < MAX_ITEMBLOCK; i++) {
 		ItemBlock& itemBlock = itemBlocks[i];
@@ -502,7 +502,7 @@ void World::spawnItemBlock(int blockID, const Vector& position)
 	}
 }
 
-//ƒvƒŒƒCƒ„[‚É‘Î‚·‚éƒuƒƒbƒN‚Ì•ûŒü‚ğCÀ•W²‚É‰ˆ‚Á‚½’PˆÊƒxƒNƒgƒ‹‚Å•Ô‚·
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«å¯¾ã™ã‚‹ãƒ–ãƒ­ãƒƒã‚¯ã®æ–¹å‘ã‚’ï¼Œåº§æ¨™è»¸ã«æ²¿ã£ãŸå˜ä½ãƒ™ã‚¯ãƒˆãƒ«ã§è¿”ã™
 Vector World::getBlockDirection(const Vector& blockPosition)
 {
 	Vector blockDirection = blockPosition + Vector(0.5, 0.5, 0.5) - player.getPosition() - Vector(0, PLAYER_HEIGHT / 2, 0);
@@ -531,7 +531,7 @@ Vector World::getBlockDirection(const Vector& blockPosition)
 	}
 }
 
-//ƒ`ƒƒƒ“ƒNƒf[ƒ^‚Ì•Û‘¶
+//ãƒãƒ£ãƒ³ã‚¯ãƒ‡ãƒ¼ã‚¿ã®ä¿å­˜
 void World::writeChunk(void) const
 {
 	ofstream file;
@@ -546,7 +546,7 @@ void World::writeChunk(void) const
 	}
 }
 
-//ƒAƒCƒeƒ€ƒXƒƒbƒg‚Ìƒf[ƒ^‚Ì•Û‘¶
+//ã‚¢ã‚¤ãƒ†ãƒ ã‚¹ãƒ­ãƒƒãƒˆã®ãƒ‡ãƒ¼ã‚¿ã®ä¿å­˜
 void World::writeItemSlot(void) const
 {
 	ofstream file;
@@ -561,7 +561,7 @@ void World::writeItemSlot(void) const
 	}
 }
 
-//ƒvƒŒƒCƒ„[‚Ìî•ñ‚Ì•Û‘¶
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æƒ…å ±ã®ä¿å­˜
 void World::writePlayerPosition(void) const
 {
 	ofstream file;

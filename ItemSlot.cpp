@@ -10,7 +10,7 @@ void ItemSlot::registerTexture(void)
 {
 	textureID1 = TextureManager::getNewID();
 	textureID2 = TextureManager::getNewID();
-	//ƒuƒƒbƒN‚ÌƒeƒNƒXƒ`ƒƒ“o˜^‚ğ—¬—p
+	//ãƒ–ãƒ­ãƒƒã‚¯ã®ãƒ†ã‚¯ã‚¹ãƒãƒ£ç™»éŒ²ã‚’æµç”¨
 	Block& block = BlockManager::getBlock(2);
 	block.registerTexture(texture1, textureID1);
 	block.registerTexture(texture2, textureID2);
@@ -30,7 +30,7 @@ void ItemSlot::registerTexture(void)
 	glEndList();
 }
 
-//‘I‘ğ‚³‚ê‚Ä‚¢‚éƒXƒƒbƒg‚ÌƒAƒCƒeƒ€‚ğg‚¤
+//é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚¹ãƒ­ãƒƒãƒˆã®ã‚¢ã‚¤ãƒ†ãƒ ã‚’ä½¿ã†
 void ItemSlot::useItem(void)
 {
 	ItemStack& itemStack = itemStacks[selected];
@@ -40,7 +40,7 @@ void ItemSlot::useItem(void)
 		itemStack = ItemStack();
 }
 
-//ƒAƒCƒeƒ€‚ğ’Ç‰Á‚·‚é
+//ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¿½åŠ ã™ã‚‹
 bool ItemSlot::addItem(int blockID)
 {
 	for (int i = 0; i < MAX_ITEMSLOT; i++) {
@@ -95,7 +95,7 @@ void ItemSlot::draw(void) const
 	glDisable(GL_TEXTURE_2D);
 }
 
-//ƒXƒƒbƒg‚ğ‘I‘ğ‚·‚é
+//ã‚¹ãƒ­ãƒƒãƒˆã‚’é¸æŠã™ã‚‹
 void ItemSlot::updateSelect(const Keyboard& keyboard)
 {
 	for (unsigned char key = '0'; key <= '9'; key++)

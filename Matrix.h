@@ -1,4 +1,4 @@
-//3s3—ñ‚Ìs—ñƒNƒ‰ƒX
+//3è¡Œ3åˆ—ã®è¡Œåˆ—ã‚¯ãƒ©ã‚¹
 
 #ifndef ___Class_Matrix
 #define ___Class_Matrix

@@ -1,4 +1,4 @@
-//3次元ベクトルクラス
+//3谺｡蜈�繝吶け繝医Ν繧ｯ繝ｩ繧ｹ
 
 #ifndef ___Class_Vector
 #define ___Class_Vector

@@ -3,10 +3,10 @@
 
 using namespace std;
 
-//ÅŒã‚É¶(‰E)ƒNƒŠƒbƒN‚µ‚½ƒuƒƒbƒN‚Ì–Ê
+//æœ€å¾Œã«å·¦(å³)ã‚¯ãƒªãƒƒã‚¯ã—ãŸãƒ–ãƒ­ãƒƒã‚¯ã®é¢
 int Block::lastHitReachFace;
 
-//•„†ŠÖ”
+//ç¬¦å·é–¢æ•°
 int Block::sign(double x) const
 {
 	if (x > 0)
@@ -16,27 +16,27 @@ int Block::sign(double x) const
 	return 0;
 }
 
-//ƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚Æ•½–Ê‚Ì“–‚½‚è”»’è
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã¨å¹³é¢ã®å½“ãŸã‚Šåˆ¤å®š
 bool Block::isHit(const Vector& vertex1, const Vector& vertex2, const Vector& vertex3, const Player& player) const
 {
-	//•½–Ê‚Ì–@üƒxƒNƒgƒ‹
+	//å¹³é¢ã®æ³•ç·šãƒ™ã‚¯ãƒˆãƒ«
 	Vector normal = (vertex2 - vertex1).outerProduct(vertex3 - vertex1);
-	//ƒvƒŒƒCƒ„[‚Ì–Ú‚ÌˆÊ’u
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç›®ã®ä½ç½®
 	Vector playerPosition = player.getPosition() + player.getEyePosition();
-	//ƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚ÌI“_ƒxƒNƒgƒ‹
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã®çµ‚ç‚¹ãƒ™ã‚¯ãƒˆãƒ«
 	Vector v1 = playerPosition + player.getDirection() * PLAYER_REACH - vertex1;
-	//ƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚Ìn“_ƒxƒNƒgƒ‹
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã®å§‹ç‚¹ãƒ™ã‚¯ãƒˆãƒ«
 	Vector v2 = playerPosition - vertex1;
 	if (sign(v1 * normal) != sign(v2 * normal))
 		return true;
 	return false;
 }
 
-//lŠpŒ`‚Æ“_‚Ì“–‚½‚è”»’è
+//å››è§’å½¢ã¨ç‚¹ã®å½“ãŸã‚Šåˆ¤å®š
 bool Block::isHit(const Vector& vertex1, const Vector& vertex2, const Vector& vertex3, const Vector& vertex4, const Vector& position) const
 {
 	double x;
-	//•ÓƒxƒNƒgƒ‹‚©‚çŒ©‚Ä“_‚ªí‚É“¯‚¶•ûŒü‚É‚ ‚é -> lŠpŒ`‚ª“_‚ğŠÜ‚Ş
+	//è¾ºãƒ™ã‚¯ãƒˆãƒ«ã‹ã‚‰è¦‹ã¦ç‚¹ãŒå¸¸ã«åŒã˜æ–¹å‘ã«ã‚ã‚‹ -> å››è§’å½¢ãŒç‚¹ã‚’å«ã‚€
 	Vector v1 = vertex2 - vertex1;
 	Vector v2 = position - vertex1;
 	x = v1 * v2;
@@ -55,45 +55,45 @@ bool Block::isHit(const Vector& vertex1, const Vector& vertex2, const Vector& ve
 	return true;
 }
 
-//ƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚ÆlŠpŒ`‚Ì“–‚½‚è”»’è
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã¨å››è§’å½¢ã®å½“ãŸã‚Šåˆ¤å®š
 bool Block::isHit(const Vector& vertex1, const Vector& vertex2, const Vector& vertex3, const Vector& vertex4, const Player& player, Vector& position) const
 {
-	//•½–Ê‚Æ‚Ì“–‚½‚è”»’è
+	//å¹³é¢ã¨ã®å½“ãŸã‚Šåˆ¤å®š
 	if (!isHit(vertex1, vertex2, vertex3, player))
 		return false;
 
-	//ƒvƒŒƒCƒ„[‚Ì–Ú‚ÌˆÊ’u
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç›®ã®ä½ç½®
 	Vector playerPosition = player.getPosition() + player.getEyePosition();
-	//ƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚Æ•½–Ê‚ÌŒğ“_‚ğ‹‚ß‚é
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã¨å¹³é¢ã®äº¤ç‚¹ã‚’æ±‚ã‚ã‚‹
 	double dist1 = getDistance(vertex1, vertex2, vertex3, playerPosition);
 	double dist2 = getDistance(vertex1, vertex2, vertex3, playerPosition + player.getDirection() * PLAYER_REACH);
 	position = playerPosition + player.getDirection() * (PLAYER_REACH * dist1 / (dist1 + dist2));
 
-	//lŠpŒ`‚Æ‚Ì“–‚½‚è”»’è
+	//å››è§’å½¢ã¨ã®å½“ãŸã‚Šåˆ¤å®š
 	return isHit(vertex1, vertex2, vertex3, vertex4, position);
 }
 
-//“_‚Æ•½–Ê‚Ì‹——£
+//ç‚¹ã¨å¹³é¢ã®è·é›¢
 double Block::getDistance(const Vector& vertex1, const Vector& vertex2, const Vector& vertex3, const Vector& playerPosition) const
 {
 	Vector v = vertex1 - playerPosition;
-	//•½–Ê‚Ì’PˆÊ–@üƒxƒNƒgƒ‹
+	//å¹³é¢ã®å˜ä½æ³•ç·šãƒ™ã‚¯ãƒˆãƒ«
 	Vector normal = (vertex2 - vertex1).outerProduct(vertex3 - vertex1);
 	normal /= normal.norm();
-	//“_‚Æ•½–Ê‚Ì‹——£
+	//ç‚¹ã¨å¹³é¢ã®è·é›¢
 	double distance = v * normal;
-	//“àÏ‚ª•‰‚É‚È‚éê‡
+	//å†…ç©ãŒè² ã«ãªã‚‹å ´åˆ
 	if (distance < 0)
 		distance *= -1;
 	return distance;
 }
 
-//ƒeƒNƒXƒ`ƒƒ‚Ìİ’è
+//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®è¨­å®š
 void Block::registerTexture(const Image& image, GLuint id)
 {
 	glBindTexture(GL_TEXTURE_2D, id);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
-	//ƒ~ƒbƒvƒ}ƒbƒv‚ğ—˜—p‚·‚éê‡
+	//ãƒŸãƒƒãƒ—ãƒãƒƒãƒ—ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆ
 	//gluBuild2DMipmaps(GL_TEXTURE_2D, GL_RGBA, image.getWidth(), image.getHeight(), GL_RGBA, GL_UNSIGNED_BYTE, image.getData());
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getWidth(), image.getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getData());
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -101,7 +101,7 @@ void Block::registerTexture(const Image& image, GLuint id)
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
 }
 
-//ƒeƒNƒXƒ`ƒƒ‚ğ–Ê‚É“\‚è•t‚¯‚é
+//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’é¢ã«è²¼ã‚Šä»˜ã‘ã‚‹
 void Block::drawTexture(GLuint id, const Vector& p1, const Vector& p2, const Vector& p3, const Vector& p4) const
 {
 	glBindTexture(GL_TEXTURE_2D, id);
@@ -119,7 +119,7 @@ void Block::drawTexture(GLuint id, const Vector& p1, const Vector& p2, const Vec
 //	glDisable(GL_TEXTURE_2D);
 }
 
-//ƒuƒƒbƒN‚Æ“_‚Ì“–‚½‚è”»’è
+//ãƒ–ãƒ­ãƒƒã‚¯ã¨ç‚¹ã®å½“ãŸã‚Šåˆ¤å®š
 bool Block::isHit(const Vector& blockPosition, const Vector& position) const
 {
 	if (position.getX() < blockPosition.getX() || position.getX() > blockPosition.getX() + 1)
@@ -131,16 +131,16 @@ bool Block::isHit(const Vector& blockPosition, const Vector& position) const
 	return true;
 }
 
-//ƒuƒƒbƒN‚ÆƒvƒŒƒCƒ„[‚Ì“–‚½‚è”»’è
+//ãƒ–ãƒ­ãƒƒã‚¯ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å½“ãŸã‚Šåˆ¤å®š
 bool Block::isHitPlayer(const Vector& blockPosition, const Vector& playerPosition) const
 {
-	//’n–Ê‚Ì“–‚½‚è”»’è
+	//åœ°é¢ã®å½“ãŸã‚Šåˆ¤å®š
 	if (blockPosition.getY() + 0.95 < playerPosition.getY())
 		return false;
-	//“Vˆä‚Ì“–‚½‚è”»’è
+	//å¤©äº•ã®å½“ãŸã‚Šåˆ¤å®š
 	if (blockPosition.getY() > playerPosition.getY() + PLAYER_HEIGHT)
 		return false;
-	//•Ç‚Ì“–‚½‚è”»’è
+	//å£ã®å½“ãŸã‚Šåˆ¤å®š
 	Vector blockVector = Vector(1, 0, 0);
 	Vector playerVector = playerPosition + Vector(PLAYER_WIDTH / 2, 0, 0) - blockPosition;
 	if (blockVector * playerVector < 0)
@@ -160,10 +160,10 @@ bool Block::isHitPlayer(const Vector& blockPosition, const Vector& playerPositio
 	return true;
 }
 
-//ƒuƒƒbƒN‚ÆƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚Ì“–‚½‚è”»’è
+//ãƒ–ãƒ­ãƒƒã‚¯ã¨ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã®å½“ãŸã‚Šåˆ¤å®š
 bool Block::isHitReach(const Vector& blockPosition, const Player& player) const
 {
-	//ƒWƒIƒƒgƒŠî•ñ
+	//ã‚¸ã‚ªãƒ¡ãƒˆãƒªæƒ…å ±
 	Vector geometry[] = {
 		blockPosition,
 		blockPosition + Vector(1, 0, 0),
@@ -174,7 +174,7 @@ bool Block::isHitReach(const Vector& blockPosition, const Player& player) const
 		blockPosition + Vector(1, 1, 1),
 		blockPosition + Vector(0, 1, 1),
 	};
-	//ƒgƒ|ƒƒWî•ñ
+	//ãƒˆãƒãƒ­ã‚¸æƒ…å ±
 	static int topology[][4] = {
 		{ 7, 6, 5, 4 },
 		{ 4, 5, 1, 0 },
@@ -188,11 +188,11 @@ bool Block::isHitReach(const Vector& blockPosition, const Player& player) const
 	const Vector& playerPosition = player.getPosition();
 	bool hitFlag = false;
 	
-	//6–Ê‚Æ‚Ì“–‚½‚è”»’è
+	//6é¢ã¨ã®å½“ãŸã‚Šåˆ¤å®š
 	for (int i = 0; i < sizeof(topology) / sizeof(topology[0]); i++) {
 		if (isHit(geometry[topology[i][0]], geometry[topology[i][1]], geometry[topology[i][2]], geometry[topology[i][3]], player, position)) {
 			hitFlag = true;
-			//“–‚½‚Á‚Ä‚¢‚é–Ê‚Åˆê”Ô‹——£‚ª‹ß‚¢–Ê‚ÆƒŠ[ƒ`‚ÌŒğ“_‚ğ‹‚ß‚é
+			//å½“ãŸã£ã¦ã„ã‚‹é¢ã§ä¸€ç•ªè·é›¢ãŒè¿‘ã„é¢ã¨ãƒªãƒ¼ãƒã®äº¤ç‚¹ã‚’æ±‚ã‚ã‚‹
 			if ((position - playerPosition).norm() < (nearestPosition - playerPosition).norm()) {
 				nearestPosition = position;
 			}
@@ -200,7 +200,7 @@ bool Block::isHitReach(const Vector& blockPosition, const Player& player) const
 	}
 	if (!hitFlag)
 		return false;
-	//“–‚½‚Á‚Ä‚¢‚é–Ê‚Åˆê”Ô‹ß‚¢–Ê‚ğ‹‚ß‚é
+	//å½“ãŸã£ã¦ã„ã‚‹é¢ã§ä¸€ç•ªè¿‘ã„é¢ã‚’æ±‚ã‚ã‚‹
 	Vector displacement = nearestPosition - blockPosition;
 	if (fabs(displacement.getY() - 1) < 0.01)
 		lastHitReachFace = 0;

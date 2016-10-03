@@ -1,33 +1,33 @@
 #ifndef ___Header_Global
 #define ___Header_Global
 
-//ƒEƒBƒ“ƒhƒE‚Ì•E‚‚³
+//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¹…ãƒ»é«˜ã•
 #define WINDOW_WIDTH	640
 #define WINDOW_HEIGHT	480
 
-//ƒ`ƒƒƒ“ƒN‚Ì•E‚‚³
+//ãƒãƒ£ãƒ³ã‚¯ã®å¹…ãƒ»é«˜ã•
 #define WORLD_WIDTH	50
 #define WORLD_HEIGHT	64
-//’n–Ê‚Ìd‚³
+//åœ°é¢ã®ç¡¬ã•
 #define GROUND_HEIGHT	8
 
-//ƒvƒŒƒCƒ„[‚Ì•Eg’·
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å¹…ãƒ»èº«é•·
 #define PLAYER_WIDTH	0.5
 #define PLAYER_HEIGHT	1.8
 
-//—‘z“I‚ÈFPS
+//ç†æƒ³çš„ãªFPS
 #define IDEAL_FPS	40
 
-//d—Í‰Á‘¬“x
+//é‡åŠ›åŠ é€Ÿåº¦
 #define GRAVITY_ACCELERATION	15
 
-//ƒvƒŒƒCƒ„[‚ÌƒŠ[ƒ`‚Ì’·‚³
+//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ãƒªãƒ¼ãƒã®é•·ã•
 #define PLAYER_REACH	5
 
-//“¯Žž‚ÉƒXƒ|[ƒ“‚Å‚«‚éƒAƒCƒeƒ€‚Ì”
+//åŒæ™‚ã«ã‚¹ãƒãƒ¼ãƒ³ã§ãã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®æ•°
 #define MAX_ITEMBLOCK	100
 
-//ƒAƒCƒeƒ€ƒXƒƒbƒg‚Ì”
+//ã‚¢ã‚¤ãƒ†ãƒ ã‚¹ãƒ­ãƒƒãƒˆã®æ•°
 #define MAX_ITEMSLOT	10
 #define MAX_ITEMSTACK	64
 

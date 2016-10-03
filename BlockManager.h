@@ -34,7 +34,7 @@ public:
 			return blockMosaic;
 		default:
 			std::cerr << "at BlockManager::getBlock()" << std::endl;
-			std::cerr << "–³Œø‚ÈID : " << id << std::endl;
+			std::cerr << "ç„¡åŠ¹ãªID : " << id << std::endl;
 			exit(-1);
 		}
 		return blockWire;

@@ -43,7 +43,7 @@ void BlockMosaic::registerDisplayList(void)
 	for (int i = 0; i < BLOCK_MOSAIC_TEXTURE_NUM; i++) {
 		displayListIDs[i] = DisplayListManager::getNewID();
 		glNewList(displayListIDs[i], GL_COMPILE);
-		//ƒAƒ‹ƒtƒ@ƒuƒŒƒ“ƒh‚ðŽg‚¤iWorldƒNƒ‰ƒX‚Å•`‰æ‚³‚ê‚È‚¢‚½‚ßj
+		//ã‚¢ãƒ«ãƒ•ã‚¡ãƒ–ãƒ¬ãƒ³ãƒ‰ã‚’ä½¿ã†ï¼ˆWorldã‚¯ãƒ©ã‚¹ã§æç”»ã•ã‚Œãªã„ãŸã‚ï¼‰
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glEnable(GL_BLEND);
 		glPushMatrix();
@@ -62,7 +62,7 @@ void BlockMosaic::registerDisplayList(void)
 
 void BlockMosaic::draw(int cnt) const
 {
-	//cnt‚Ì’l‚É‰ž‚¶‚ÄƒeƒNƒXƒ`ƒƒ‚ð•Ï‚¦‚Ä•`‰æ
+	//cntã®å€¤ã«å¿œã˜ã¦ãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’å¤‰ãˆã¦æç”»
 	cnt %= 15;
 	glCallList(displayListIDs[(int)(cnt / 15.0 * 10)]);
 }

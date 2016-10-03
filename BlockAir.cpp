@@ -7,6 +7,6 @@ using namespace std;
 
 void BlockAir::registerDisplayList(void)
 {
-	//ƒfƒBƒXƒvƒŒƒCƒŠƒXƒg‚Í“o˜^‚µ‚È‚¢
+	//ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã¯ç™»éŒ²ã—ãªã„
 	displayListID = -1;
 }

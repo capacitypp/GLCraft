@@ -23,24 +23,24 @@ World world(player, fps, keyboard, mouse);
 
 void display(void)
 {
-	//FPS‚ÌXV
+	//FPSã®æ›´æ–°
 	fps.update();
 
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	//‰æ–Ê‚Ì’†S‚É\š‚ğ•\¦‚·‚é
+	//ç”»é¢ã®ä¸­å¿ƒã«åå­—ã‚’è¡¨ç¤ºã™ã‚‹
 	glBegin(GL_LINES);
 	glVertex3d(-0.0025, 0, -0.1);
 	glVertex3d(0.0025, 0, -0.1);
 	glVertex3d(0, -0.0025, -0.1);
 	glVertex3d(0, 0.0025, -0.1);
 	glEnd();
-	//ƒAƒCƒeƒ€ƒXƒƒbƒg‚Ì•`‰æ
+	//ã‚¢ã‚¤ãƒ†ãƒ ã‚¹ãƒ­ãƒƒãƒˆã®æç”»
 	player.drawItemSlot();
-	//FPS‚Ì•`‰æ
+	//FPSã®æç”»
 	StringManager::draw(0.66, 0.54, fps.get());
 
-	//ƒvƒŒƒCƒ„[‚Ì–Úü‚É‡‚í‚¹‚é
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç›®ç·šã«åˆã‚ã›ã‚‹
 	const Vector& direction = player.getDirection();
 	gluLookAt(0, 0, 0, direction.getX(), direction.getY(), direction.getZ(), 0, 1, 0);
 	const Vector& playerPosition = player.getPosition();
@@ -48,9 +48,9 @@ void display(void)
 	const Vector& eyePosition = player.getEyePosition();
 	glTranslated(-eyePosition.getX(), -eyePosition.getY(), -eyePosition.getZ());
 
-	//ƒ`ƒƒƒ“ƒN‚ğ•`‰æ
+	//ãƒãƒ£ãƒ³ã‚¯ã‚’æç”»
 	world.draw();
-	//ƒuƒƒbƒN‚Ì”j‰ó’†‚È‚çC”j‰óƒGƒtƒFƒNƒg‚ğ•`‰æ
+	//ãƒ–ãƒ­ãƒƒã‚¯ã®ç ´å£Šä¸­ãªã‚‰ï¼Œç ´å£Šã‚¨ãƒ•ã‚§ã‚¯ãƒˆã‚’æç”»
 	if (world.isLastHitReach()) {
 		Vector position = world.getLastHitBlockPosition();
 		glPushMatrix();
@@ -60,9 +60,9 @@ void display(void)
 		glDisable(GL_TEXTURE_2D);
 		glPopMatrix();
 	}
-	//ƒAƒCƒeƒ€‚ğ•`‰æ
+	//ã‚¢ã‚¤ãƒ†ãƒ ã‚’æç”»
 	world.drawItemBlocks();
-	//’PˆÊƒxƒNƒgƒ‹‚ğ•`‰æ
+	//å˜ä½ãƒ™ã‚¯ãƒˆãƒ«ã‚’æç”»
 	glTranslated(0, 9, 0);
 	glBegin(GL_LINES);
 	glColor3d(1, 0, 0);
@@ -76,7 +76,7 @@ void display(void)
 	glVertex3d(0, 0, 1);
 	glColor3d(1, 1, 1);
 	glEnd();
-	//CVIPƒuƒƒbƒN‚ğ‰ñ“]‚³‚¹‚È‚ª‚ç•`‰æ
+	//CVIPãƒ–ãƒ­ãƒƒã‚¯ã‚’å›è»¢ã•ã›ãªãŒã‚‰æç”»
 	glTranslated(0, 2, 0);
 	static double yAngle = 0.0;
 	yAngle += 1.0;
@@ -104,15 +104,15 @@ void resize(int w, int h)
 void printComment(void)
 {
 	cout << "**********************************************" << endl;
-	cout << "w, s, a, d : ‘OŒã¶‰E‚ÉˆÚ“®" << endl;
-	cout << "Space      : ƒWƒƒƒ“ƒv" << endl;
-	cout << "ƒ}ƒEƒXˆÚ“® : ‹“_•ÏX" << endl;
-	cout << "¶ƒNƒŠƒbƒN : ƒuƒƒbƒN”j‰ó" << endl;
-	cout << "‰EƒNƒŠƒbƒN : ƒuƒƒbƒNİ’u" << endl;
-	cout << "”šƒL[   : ƒuƒƒbƒN‘I‘ğ" << endl;
-	cout << "p          : ƒZ[ƒu" << endl;
+	cout << "w, s, a, d : å‰å¾Œå·¦å³ã«ç§»å‹•" << endl;
+	cout << "Space      : ã‚¸ãƒ£ãƒ³ãƒ—" << endl;
+	cout << "ãƒã‚¦ã‚¹ç§»å‹• : è¦–ç‚¹å¤‰æ›´" << endl;
+	cout << "å·¦ã‚¯ãƒªãƒƒã‚¯ : ãƒ–ãƒ­ãƒƒã‚¯ç ´å£Š" << endl;
+	cout << "å³ã‚¯ãƒªãƒƒã‚¯ : ãƒ–ãƒ­ãƒƒã‚¯è¨­ç½®" << endl;
+	cout << "æ•°å­—ã‚­ãƒ¼   : ãƒ–ãƒ­ãƒƒã‚¯é¸æŠ" << endl;
+	cout << "p          : ã‚»ãƒ¼ãƒ–" << endl;
 	cout << "**********************************************" << endl;
-	cout << "ã‚É•\¦‚³‚ê‚Ä‚¢‚éƒpƒX‚ÉIrfanView‚Åo—Í‚µ‚½ƒoƒCƒiƒŠPPMƒtƒ@ƒCƒ‹‚ğ’u‚­‚ÆCƒeƒNƒXƒ`ƒƒ‚ğ·‚µ‘Ö‚¦‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·D" << endl;
+	cout << "ä¸Šã«è¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹ãƒ‘ã‚¹ã«IrfanViewã§å‡ºåŠ›ã—ãŸãƒã‚¤ãƒŠãƒªPPMãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç½®ãã¨ï¼Œãƒ†ã‚¯ã‚¹ãƒãƒ£ã‚’å·®ã—æ›¿ãˆã‚‹ã“ã¨ãŒã§ãã¾ã™ï¼" << endl;
 }
 
 void init(void)
@@ -120,33 +120,33 @@ void init(void)
 	glClearColor((double)0x00 / 0xFF, (double)0xBF / 0xFF, (double)0xFF / 0xFF, 1.0);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
-	//ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ‰æ–Ê‚Ì’†‰›‚ÉˆÚ“®‚³‚¹‚é
+	//ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç”»é¢ã®ä¸­å¤®ã«ç§»å‹•ã•ã›ã‚‹
 	glutWarpPointer(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
-	//ƒeƒNƒXƒ`ƒƒEƒfƒBƒXƒvƒŒƒCƒŠƒXƒg‚Ì“o˜^
+	//ãƒ†ã‚¯ã‚¹ãƒãƒ£ãƒ»ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã®ç™»éŒ²
 	TextureManager::init();
 	BlockManager::init();
 	player.getItemSlot().registerTexture();
 	world.registerDisplayList();
 	world.updateChunkVisible();
-	//ƒ`ƒƒƒ“ƒN‚ÌƒfƒBƒXƒvƒŒƒCƒŠƒXƒg‚ğXV
+	//ãƒãƒ£ãƒ³ã‚¯ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã‚’æ›´æ–°
 	world.waitForUpdateChunkVisible();
 	world.updateDisplayList();
-	//à–¾‚Ì•\¦
+	//èª¬æ˜ã®è¡¨ç¤º
 	printComment();
 }
 
 void key(unsigned char key, int x, int y)
 {
 	switch (key) {
-	//EscƒL[‚ÅI—¹
+	//Escã‚­ãƒ¼ã§çµ‚äº†
 	case '\033':
 		exit(0);
-	//ƒZ[ƒu
+	//ã‚»ãƒ¼ãƒ–
 	case 'p':
 		world.writeChunk();
 		world.writeItemSlot();
 		world.writePlayerPosition();
-		cout << "ƒZ[ƒu‚µ‚Ü‚µ‚½D" << endl;
+		cout << "ã‚»ãƒ¼ãƒ–ã—ã¾ã—ãŸï¼" << endl;
 		break;
 	}
 	keyboard.down(key);
@@ -178,24 +178,24 @@ static void timer(int dummy)
 {
 	glutTimerFunc(1, timer, 0);
 	glutPostRedisplay();
-	//ƒvƒŒƒCƒ„[‚Ì–Úü‚Ì•ÏX
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç›®ç·šã®å¤‰æ›´
 	mouse.updatePlayerDirection(player);
-	//ƒ}ƒEƒX‚Ìó‘Ô‚ÌXV
+	//ãƒã‚¦ã‚¹ã®çŠ¶æ…‹ã®æ›´æ–°
 	mouse.update();
-	//ƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ğ‰æ–Ê‚Ì’†‰›‚É•Û‚Â
+	//ãƒã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç”»é¢ã®ä¸­å¤®ã«ä¿ã¤
 	glutWarpPointer(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
-	//ƒvƒŒƒCƒ„[‚ÌˆÚ“®
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•
 	world.movePlayer();
-	//¶ƒNƒŠƒbƒN‚Ìˆ—
+	//å·¦ã‚¯ãƒªãƒƒã‚¯ã®å‡¦ç†
 	world.leftClickPlayer();
-	//‰EƒNƒŠƒbƒN‚Ìˆ—
+	//å³ã‚¯ãƒªãƒƒã‚¯ã®å‡¦ç†
 	world.rightClickPlayer();
-	//ƒL[ƒ{[ƒh‚Ìˆ—
+	//ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®å‡¦ç†
 	world.keyboardPlayer();
-	//ƒAƒCƒeƒ€‚Ìˆ—
+	//ã‚¢ã‚¤ãƒ†ãƒ ã®å‡¦ç†
 	world.updateItemBlocks();
 	
-	//’èŠú“I‚Éƒ`ƒƒƒ“ƒN‚ÌƒfƒBƒXƒvƒŒƒCƒŠƒXƒg‚ğXV‚·‚é
+	//å®šæœŸçš„ã«ãƒãƒ£ãƒ³ã‚¯ã®ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒªã‚¹ãƒˆã‚’æ›´æ–°ã™ã‚‹
 	static int worldUpdateCnt = 0;
 	if (worldUpdateCnt++ >= 25) {
 		worldUpdateCnt = 0;
@@ -206,7 +206,7 @@ static void timer(int dummy)
 
 void idle(void)
 {
-	//ƒ`ƒƒƒ“ƒN‚ÌƒuƒƒbƒN‚ÌuŒ©‚¦‚é/Œ©‚¦‚È‚¢v‚ğXV‚·‚é
+	//ãƒãƒ£ãƒ³ã‚¯ã®ãƒ–ãƒ­ãƒƒã‚¯ã®ã€Œè¦‹ãˆã‚‹/è¦‹ãˆãªã„ã€ã‚’æ›´æ–°ã™ã‚‹
 	static int cnt = 0;
 	if (++cnt >= 5) {
 		cnt = 0;
@@ -220,7 +220,7 @@ int main(int argc, char** argv)
 	glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutCreateWindow("*inecraft");
-	//ƒJ[ƒ\ƒ‹‚ğ”ñ•\¦‚É‚·‚é
+	//ã‚«ãƒ¼ã‚½ãƒ«ã‚’éè¡¨ç¤ºã«ã™ã‚‹
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutDisplayFunc(display);
 	glutReshapeFunc(resize);

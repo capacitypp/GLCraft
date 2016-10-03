@@ -1,4 +1,4 @@
-//‰æ‘œƒf[ƒ^
+//ç”»åƒãƒ‡ãƒ¼ã‚¿
 int blockCVIPWidth = 200;
 int blockCVIPHeight = 200;
 unsigned char blockCVIPData[] = {

@@ -7,7 +7,7 @@
 #include "BlockCVIP.h"
 #include "BlockMosaic.h"
 
-//ƒuƒƒbƒN‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‰»
+//ãƒ–ãƒ­ãƒƒã‚¯ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–
 Block& BlockManager::blockAir = BlockAir();
 Block& BlockManager::blockWire = BlockWire();
 Block& BlockManager::blockDirt = BlockDirt();
